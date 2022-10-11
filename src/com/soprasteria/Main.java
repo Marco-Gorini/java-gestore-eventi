@@ -11,6 +11,22 @@ import Exceptions.NoAvailableSeatsException;
 public class Main {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
+		EventProgram ep = new EventProgram("p");
+		try {
+			ep.getEvents().add(new Event("evento",LocalDate.of(2022, 10, 21),20));
+			ep.getEvents().add(new Event("evento",LocalDate.of(2022, 10, 22),20));
+			ep.getEvents().add(new Event("evento",LocalDate.of(2022, 10, 20),20));
+			ep.getEvents().add(new Event("evento",LocalDate.of(2027, 7, 3),20));
+			ep.getEvents().add(new Event("evento",LocalDate.of(2023, 8, 10),20));
+			ep.getEvents().add(new Event("evento",LocalDate.of(2025, 7, 3),20));
+			ep.getEvents().add(new Event("evento",LocalDate.of(2029, 10, 4),20));
+			ep.getEvents().add(new Event("evento",LocalDate.of(2022, 10, 17),20));
+		} catch (IncorrectDayException e1) {
+			e1.printStackTrace();
+		} catch (IncorrectTotalSeatsException e1) {
+			e1.printStackTrace();
+		}
+		System.out.println(ep.showEvents());
 		
 		System.out.print("Insert the name of the event: ");
 		String nameEvent = in.nextLine();
