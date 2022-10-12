@@ -1,5 +1,6 @@
 package com.soprasteria;
 
+import java.io.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -67,6 +68,14 @@ public class EventProgram {
 			stringToReturn += (events.get(i).toString() + "\n");
 		}
 		return stringToReturn;
+	}
+	
+	public void save(String path) throws IOException {
+		File filePath = new File(path);
+		FileWriter fileWriter = new FileWriter(filePath);
+		for(Event event : events) {
+			fileWriter.write(event.toString());
+		}
 	}
 	
 }

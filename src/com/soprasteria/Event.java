@@ -1,14 +1,16 @@
 package com.soprasteria;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import Exceptions.*;
 
 public class Event {
-	private String title;
-	private LocalDate date;
+	protected String title;
+	protected LocalDate date;
 	private final int totalNumber;
 	private int alreadyBooked;
+	protected DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	
 	//Constructor
 	
@@ -100,6 +102,6 @@ public class Event {
 	@Override
 	
 	public String toString() {
-		return (date + " - " + title);
+		return (dtf.format(date) + " - " + title + "\n");
 	}
 }
